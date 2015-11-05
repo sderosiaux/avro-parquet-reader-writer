@@ -11,3 +11,5 @@ libraryDependencies += "com.twitter" % "parquet-hadoop" % "1.6.0"
 libraryDependencies += "com.twitter" % "parquet-column" % "1.6.0"
 
 
+
+

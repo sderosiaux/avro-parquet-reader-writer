@@ -44,13 +44,15 @@ object Main {
       .build
 
     // Write both records to an Avro object container file
-    val file = new File("users.avro")
+    val file = File.createTempFile(getClass.getSimpleName, ".tmp")
+    println(file.getAbsolutePath)
+
     //file.deleteOnExit
     val dataFileWriter = new DataFileWriter[GenericRecord](writer)
     dataFileWriter.create(schema, file)
     dataFileWriter.append(user1)
     dataFileWriter.append(user2)
-    dataFileWriter.close
+    dataFileWriter.close()
 
     // Read the records back from the file
     val datumReader = new GenericDatumReader[GenericRecord](schema)
